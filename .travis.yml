@@ -10,7 +10,7 @@ addons:
     - wput
 before_install: git clone https://github.com/ZeoRexDevs/test_android_norepos.git ${TRAVIS_BUILD_DIR}/tranSkadooSH
 script:
-  - "travis_wait 30 sleep 1800 &"
+  - "travis_wait 30 sleep 3600 &"
   - cd ${TRAVIS_BUILD_DIR}/tranSkadooSH
   - chmod +x ./transload.sh
   - bash ./transload.sh $AndroidName $LINK $BRANCH $GitHubMail $GitHubName $FTPHost $FTPUser $FTPPass
