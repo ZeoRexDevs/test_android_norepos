@@ -60,12 +60,12 @@ export XZ_OPT=-9e
 
 if [ $DDF -gt 8192 ]; then
   echo -e "Compressing and Making 1.75GB parts Because of Huge Data Amount \nBe Patient..."
-  time tar -I pxz -cf - * | split -b 1792M - $DIR/upload/$AndroidName-$BRANCH-norepo-$(date +%Y%m%d).tar.xz.
+  time tar -I pxz -cvf - * | split -b 1792M - $DIR/upload/$AndroidName-$BRANCH-norepo-$(date +%Y%m%d).tar.xz.
   # Show Total Sizes of the compressed .repo
   echo -en "Final Compressed size of the consolidated checked-out files is ---  "
   du -sh $DIR/upload/
 else
-  time tar -I pxz -cf $DIR/upload/$AndroidName-$BRANCH-norepo-$(date +%Y%m%d).tar.xz *
+  time tar -I pxz -cvf $DIR/upload/$AndroidName-$BRANCH-norepo-$(date +%Y%m%d).tar.xz *
   echo -en "Final Compressed size of the consolidated checked-out archive is ---  "
   du -sh $DIR/upload/$AndroidName-$BRANCH-norepo*.tar.xz
 fi
